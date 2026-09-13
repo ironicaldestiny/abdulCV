@@ -1,378 +1,735 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul Waheed | Senior Test Automation Leader</title>
+    <title>Abdul Waheed | Senior Test Automation Leader & Quality Engineering Director</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#c5a059',
+                            400: '#dfba73',
+                            500: '#c5a059',
+                            600: '#a7823f',
+                            glow: 'rgba(197, 160, 89, 0.25)'
+                        },
+                        obsidian: '#05070a',
+                        surface: '#0b0f17',
+                        surfaceLight: '#131a26'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
 
         :root {
-            --neon-cyan: #00f2ff;
-            --neon-blue: #0062ff;
-            --bg-dark: #0a0b10;
+            --gold: #c5a059;
+            --gold-glow: rgba(197, 160, 89, 0.25);
+            --dark-bg: #05070a;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: #e2e8f0;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            background-color: var(--dark-bg);
+            color: #f1f5f9;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
 
-        .mono { font-family: 'Fira Code', monospace; }
+        .serif { font-family: 'Playfair Display', Georgia, serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
 
         .glass-panel {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 242, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            background: rgba(19, 26, 38, 0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .neon-text {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        .glass-panel:hover {
+            border-color: rgba(197, 160, 89, 0.5);
+            box-shadow: 0 10px 30px -10px var(--gold-glow);
+            transform: translateY(-3px);
         }
 
-        .neon-border {
-            border: 1px solid var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        .nav-blur {
+            background: rgba(5, 7, 10, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: 50;
-            background: linear-gradient(0deg, rgba(0, 242, 255, 0) 0%, rgba(0, 242, 255, 0.05) 50%, rgba(0, 242, 255, 0) 100%);
-            opacity: 0.1;
-            position: fixed;
-            pointer-events: none;
-            animation: scan 6s linear infinite;
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #fef3c7 40%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        @keyframes scan {
-            0% { top: -100px; }
-            100% { top: 100%; }
+        .timeline-node {
+            position: relative;
+            padding-left: 2.25rem;
+            border-left: 1.5px solid rgba(197, 160, 89, 0.25);
         }
 
-        .gradient-bg {
-            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 11px;
+            height: 11px;
+            background: var(--gold);
+            border: 2px solid #05070a;
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--gold);
         }
 
-        .skill-tag {
-            background: rgba(0, 98, 255, 0.1);
-            border: 1px solid rgba(0, 98, 255, 0.3);
-            transition: all 0.3s ease;
+        .badge-active {
+            background: rgba(197, 160, 89, 0.18);
+            border: 1px solid var(--gold);
+            color: #fef08a;
         }
 
-        .skill-tag:hover {
-            background: rgba(0, 242, 255, 0.2);
-            border-color: var(--neon-cyan);
-            transform: translateY(-2px);
-        }
-
-        .timeline-line {
-            width: 2px;
-            background: linear-gradient(180deg, var(--neon-cyan) 0%, var(--neon-blue) 100%);
-        }
-
-        .animate-flicker {
-            animation: flicker 2s infinite;
-        }
-
-        @keyframes flicker {
-            0%, 19.999%, 22%, 62.999%, 64%, 100% { opacity: 1; }
-            20%, 21.999%, 63%, 63.999% { opacity: 0.4; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: #111827 !important; }
+            .glass-panel { background: white !important; border: 1px solid #e5e7eb !important; color: #111827 !important; box-shadow: none !important; }
+            .gold-gradient-text { -webkit-text-fill-color: #111827 !important; }
+            .timeline-node { border-left-color: #cbd5e1 !important; }
+            .timeline-node::before { background: #475569 !important; }
         }
     </style>
 </head>
-<body class="gradient-bg">
-    <div class="scanline"></div>
+<body class="antialiased selection:bg-gold selection:text-black">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-40 glass-panel border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="mono text-xl font-bold tracking-tighter">
-                <span class="neon-text">ABDUL</span>WAHEED<span class="animate-pulse">_</span>
-            </div>
-            <div class="hidden md:flex space-x-8 mono text-xs uppercase tracking-widest text-slate-400">
-                <a href="#about" class="hover:text-cyan-400 transition-colors">// Expertise</a>
-                <a href="#experience" class="hover:text-cyan-400 transition-colors">// System_Logs</a>
-                <a href="#skills" class="hover:text-cyan-400 transition-colors">// Tech_Stack</a>
-                <a href="#contact" class="hover:text-cyan-400 transition-colors">// Ping</a>
-            </div>
-        </div>
-    </nav>
+    <header class="fixed top-0 inset-x-0 z-50 nav-blur border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#about" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-gold to-yellow-700 flex items-center justify-center font-bold text-black serif text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    AW
+                </div>
+                <div>
+                    <div class="text-base font-bold tracking-tight text-white flex items-center gap-2">
+                        Abdul Waheed
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Available for Strategic & Lead Roles"></span>
+                    </div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-gold font-semibold">Test Lead & Founder</div>
+                </div>
+            </a>
 
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 space-y-6">
-                <div class="inline-block glass-panel px-4 py-1 rounded-full border border-cyan-500/30 text-xs mono tracking-widest text-cyan-400">
-                    <i class="fas fa-shield-halved mr-2"></i> BASELINE SECURITY CLEARED
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-none">
-                    Senior Test <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Automation Leader</span>
-                </h1>
-                <p class="text-xl text-slate-400 max-w-2xl leading-relaxed">
-                    19+ years driving QA excellence across Government & Enterprise sectors. Specializing in Python BDD, Selenium Java, and Agentic AI automation.
-                </p>
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#contact" class="px-8 py-3 bg-cyan-500 text-black font-bold mono text-sm hover:bg-cyan-400 transition-all rounded-sm flex items-center">
-                        CONTACT_INIT <i class="fas fa-chevron-right ml-2 text-xs"></i>
-                    </a>
-                    <a href="mailto:abdulwaheed2710@gmail.com" class="px-8 py-3 glass-panel border border-white/10 mono text-sm hover:border-cyan-500/50 transition-all rounded-sm">
-                        VIEW_RESOURCES
-                    </a>
-                </div>
-            </div>
-            <div class="flex-1 w-full md:w-auto">
-                <div class="glass-panel p-6 rounded-lg border border-white/5 relative overflow-hidden group">
-                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all"></div>
-                    <div class="mono text-xs text-cyan-400/70 mb-4 flex justify-between">
-                        <span>CORE_METRICS.LOG</span>
-                        <span>STATUS: ACTIVE</span>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-end border-b border-white/5 pb-2">
-                            <span class="text-slate-500 mono text-sm">EXPERIENCE</span>
-                            <span class="text-2xl font-bold">19+ Yrs</span>
-                        </div>
-                        <div class="flex justify-between items-end border-b border-white/5 pb-2">
-                            <span class="text-slate-500 mono text-sm">EFFORT_REDUCTION</span>
-                            <span class="text-2xl font-bold text-green-400">60%</span>
-                        </div>
-                        <div class="flex justify-between items-end border-b border-white/5 pb-2">
-                            <span class="text-slate-500 mono text-sm">TEAM_SIZE_LED</span>
-                            <span class="text-2xl font-bold">10+ Engineers</span>
-                        </div>
-                        <div class="flex justify-between items-end border-b border-white/5 pb-2">
-                            <span class="text-slate-500 mono text-sm">LOCALE</span>
-                            <span class="text-2xl font-bold">Sydney, AU</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-slate-300">
+                <a href="#about" class="hover:text-gold transition-colors">Overview</a>
+                <a href="#current-role" class="hover:text-gold transition-colors">Current Engagement</a>
+                <a href="#experience" class="hover:text-gold transition-colors">Timeline</a>
+                <a href="#capabilities" class="hover:text-gold transition-colors">Expertise</a>
+                <a href="#qualy5" class="hover:text-gold transition-colors">Qualy5 Solutions</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="window.print()" class="no-print hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white glass-panel border border-white/10 hover:border-gold transition-all">
+                    <i class="fas fa-print text-gold"></i>
+                    <span>PDF Print</span>
+                </button>
+                <a href="#contact" class="px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-gold to-amber-400 hover:from-amber-300 hover:to-gold shadow-md hover:shadow-gold-glow transition-all">
+                    Get In Touch
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-6 bg-slate-900/30">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-16 flex items-center mono">
-                <span class="text-cyan-500 mr-4">01.</span> CAREER_LIFECYCLE
-            </h2>
-            
-            <div class="relative pl-8">
-                <div class="absolute left-0 top-0 bottom-0 timeline-line"></div>
+    <main class="pt-28 pb-20 px-6 max-w-7xl mx-auto space-y-28">
 
-                <!-- Job 1 -->
-                <div class="mb-16 relative">
-                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-cyan-500 border-4 border-slate-900"></div>
-                    <div class="grid md:grid-cols-4 gap-8">
-                        <div class="md:col-span-1">
-                            <span class="mono text-cyan-400 text-sm">2024 — 2025</span>
-                            <h3 class="text-xl font-bold mt-1 text-white">Services Australia</h3>
-                            <p class="text-xs mono text-slate-500 uppercase tracking-widest mt-1">Federal Govt</p>
+        <section id="about" class="min-h-[75vh] flex items-center pt-8">
+            <div class="max-w-4xl space-y-8 w-full">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/5 text-gold text-xs font-bold tracking-widest uppercase">
+                    <i class="fas fa-shield-halved text-[11px]"></i>
+                    <span>Baseline Security Cleared • 20+ Years Excellence</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl xl:text-7xl serif font-normal leading-[1.08] tracking-tight">
+                    Driving <span class="gold-gradient-text italic font-semibold">Predictable Quality</span> & AI-Led Automation.
+                </h1>
+
+                <p class="text-slate-300 text-lg sm:text-xl font-light leading-relaxed max-w-3xl">
+                    Senior Test Automation Leader and Founder with two decades delivering mission-critical quality engineering across <strong class="text-white font-medium">Enterprise Retail (Woolworths Group)</strong>, <strong class="text-white font-medium">Federal Government (Services Australia)</strong>, and <strong class="text-white font-medium">Transport for NSW</strong>. Proven record in reducing regression cycles by up to <span class="text-gold font-semibold">60%</span>.
+                </p>
+
+                <!-- Quick Contact Pills -->
+                <div class="flex flex-wrap gap-3 text-xs mono text-slate-300">
+                    <a href="mailto:abdulwaheed2710@gmail.com" class="glass-panel px-3.5 py-2 rounded-md flex items-center gap-2 hover:text-gold border border-white/10">
+                        <i class="fas fa-envelope text-gold"></i>
+                        <span>abdulwaheed2710@gmail.com</span>
+                    </a>
+                    <a href="tel:+61469726353" class="glass-panel px-3.5 py-2 rounded-md flex items-center gap-2 hover:text-gold border border-white/10">
+                        <i class="fas fa-phone text-gold"></i>
+                        <span>+61 469 726 353</span>
+                    </a>
+                    <span class="glass-panel px-3.5 py-2 rounded-md flex items-center gap-2 text-slate-400 border border-white/10">
+                        <i class="fas fa-location-dot text-gold"></i>
+                        <span>Sydney, Australia</span>
+                    </span>
+                    <a href="https://linkedin.com/in/abdulw" target="_blank" rel="noopener noreferrer" class="glass-panel px-3.5 py-2 rounded-md flex items-center gap-2 hover:text-gold border border-white/10">
+                        <i class="fab fa-linkedin-in text-gold"></i>
+                        <span>linkedin.com/in/abdulw</span>
+                    </a>
+                    <a href="https://ironicaldestiny.github.io/awaheed/" target="_blank" rel="noopener noreferrer" class="glass-panel px-3.5 py-2 rounded-md flex items-center gap-2 hover:text-gold border border-white/10">
+                        <i class="fas fa-globe text-gold"></i>
+                        <span>Personal Web CV</span>
+                    </a>
+                </div>
+
+                <!-- Metrics Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 max-w-3xl">
+                    <div class="glass-panel p-4 rounded-xl text-center">
+                        <div class="text-3xl serif font-bold text-white">20+</div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Years Experience</div>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl text-center">
+                        <div class="text-3xl serif font-bold text-gold">60%</div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Effort Slashed</div>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl text-center">
+                        <div class="text-3xl serif font-bold text-white">50+</div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Projects Delivered</div>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl text-center">
+                        <div class="text-3xl serif font-bold text-emerald-400">Baseline</div>
+                        <div class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1">Gov Clearance</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-role" class="scroll-mt-24">
+            <div class="glass-panel p-8 sm:p-12 rounded-2xl border-l-4 border-l-gold relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-5 text-gold text-9xl pointer-events-none serif">
+                    W
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold mb-2">
+                            <span class="w-2 h-2 rounded-full bg-gold"></span>
+                            Current High-Impact Engagement
                         </div>
-                        <div class="md:col-span-3 glass-panel p-6 rounded-xl">
-                            <h4 class="text-lg font-semibold text-cyan-300 mb-3">Automation Developer</h4>
-                            <ul class="space-y-3 text-slate-400 text-sm">
-                                <li>• Architected automated frameworks for <b>myGov</b> using Selenium (Java) & RestAssured.</li>
-                                <li>• Implemented <b>Kafka-based</b> event-driven testing to validate message reliability.</li>
-                                <li>• Optimised CI/CD pipelines in GitLab for rapid feedback loops.</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mt-4">
-                                <span class="text-[10px] mono bg-slate-800 px-2 py-1 rounded">RESTASSURED</span>
-                                <span class="text-[10px] mono bg-slate-800 px-2 py-1 rounded">KAFKA</span>
-                                <span class="text-[10px] mono bg-slate-800 px-2 py-1 rounded">GITLAB</span>
-                                <span class="text-[10px] mono bg-slate-800 px-2 py-1 rounded">DB2</span>
+                        <h2 class="text-3xl sm:text-4xl serif font-bold text-white">
+                            Senior QA Engineer <span class="text-gold font-normal">@ WDigital</span>
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-1">WooliesX – Woolworths Group • Sydney, Australia • <span class="text-white font-medium">02/2026 – Present</span></p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-md text-[11px] font-semibold bg-white/5 border border-white/10 text-slate-300">Playwright MCP</span>
+                        <span class="px-3 py-1 rounded-md text-[11px] font-semibold bg-white/5 border border-white/10 text-slate-300">Syndigo PIM</span>
+                        <span class="px-3 py-1 rounded-md text-[11px] font-semibold bg-white/5 border border-white/10 text-slate-300">Gemini Enterprise</span>
+                        <span class="px-3 py-1 rounded-md text-[11px] font-semibold bg-white/5 border border-white/10 text-slate-300">ServiceNow Change Owner</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 text-sm text-slate-300 font-light leading-relaxed">
+                    <ul class="space-y-3.5">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gold mt-1"></i>
+                            <span>Spearheading QA for enterprise migration of in-house Product Information Management (PIM) to <strong>Syndigo PIM platform</strong>, powering data for Woolworths online shopping stores across Australia and New Zealand (B2C & B2B).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gold mt-1"></i>
+                            <span>Executing functional, system, and end-to-end testing for the <strong>Product Recall and Withdrawal Management system</strong>, ensuring data accuracy across upstream, product, and downstream channels.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gold mt-1"></i>
+                            <span>Building automated regression suites leveraging <strong>Playwright MCP</strong> and VortexAI to radically boost testing coverage and accelerate deployment confidence.</span>
+                        </li>
+                    </ul>
+                    <ul class="space-y-3.5">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gold mt-1"></i>
+                            <span>Conducting rigorous API and data-flow integration testing using mock datasets across complex, interconnected microservices, Azure components, and MongoDB.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gold mt-1"></i>
+                            <span><strong>Change Owner & Implementor via ServiceNow:</strong> Managing end-to-end lifecycle of change requests (CAB approval, initial planning, risk analysis, release coordination, and post-implementation review).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gold mt-1"></i>
+                            <span>Practicing <strong>Spec-Driven Development (SDD)</strong> to bridge design, technical specifications, and executable automation specifications seamlessly.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="scroll-mt-24 space-y-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold block mb-2">Track Record</span>
+                    <h2 class="text-3xl sm:text-5xl serif text-white">Professional Journey</h2>
+                </div>
+
+                <!-- Interactive Filters -->
+                <div class="flex flex-wrap gap-2 text-xs font-semibold" id="filter-container">
+                    <button onclick="filterTimeline('all')" class="filter-btn active-btn px-4 py-2 rounded-lg glass-panel text-white hover:text-gold border border-white/10 transition-all">All Roles</button>
+                    <button onclick="filterTimeline('government')" class="filter-btn px-4 py-2 rounded-lg glass-panel text-slate-400 hover:text-white border border-white/10 transition-all">Government & Public</button>
+                    <button onclick="filterTimeline('enterprise')" class="filter-btn px-4 py-2 rounded-lg glass-panel text-slate-400 hover:text-white border border-white/10 transition-all">Enterprise & Tech</button>
+                    <button onclick="filterTimeline('management')" class="filter-btn px-4 py-2 rounded-lg glass-panel text-slate-400 hover:text-white border border-white/10 transition-all">Management & Lead</button>
+                </div>
+            </div>
+
+            <div class="space-y-14" id="timeline-list">
+                
+                <!-- Services Australia -->
+                <div class="timeline-node timeline-item" data-category="government enterprise">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-3">
+                        <h3 class="text-2xl serif font-bold text-white">
+                            Services Australia <span class="text-slate-400 text-sm font-sans font-normal ml-2">Federal Government • Sydney, NSW</span>
+                        </h3>
+                        <span class="text-xs mono font-semibold text-gold bg-gold/10 px-3 py-1 rounded border border-gold/30">11/2024 – 10/2025</span>
+                    </div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-300 mb-4">
+                        Automation Developer <span class="text-gold font-normal">• Engagement via Qualy5 Solutions</span>
+                    </div>
+                    <p class="text-sm text-slate-300 font-light leading-relaxed mb-4">
+                        Delivered high-security test engineering within federal guidelines (holding Baseline Clearance). Validated critical citizen interactions across myGov, AEM content workflows, and microservice events.
+                    </p>
+                    <ul class="text-sm text-slate-400 font-light space-y-2 mb-4 list-disc list-inside">
+                        <li>Engineered Selenium Java and BDD Cucumber suites for myGov web and API endpoints, integrating Shutterbug visual regression testing for pixel-perfect releases.</li>
+                        <li>Automated AEM workflows via Selenium WebDriver to maintain content publishing fidelity.</li>
+                        <li>Built Kafka-based event-driven test suites to validate message producers, stream consumers, and broker reliability across distributed microservices.</li>
+                        <li>Architected GitLab CI/CD pipelines for accelerated feedback loops; performed backend data verification using DB2 and LDAP security integration.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Selenium (Java)</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Kafka Event-Driven</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">GitLab CI/CD</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">AEM</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">DB2</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">RestAssured</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">SAFe</span>
+                    </div>
+                </div>
+
+                <!-- Sydney Trains -->
+                <div class="timeline-node timeline-item" data-category="government management">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-3">
+                        <h3 class="text-2xl serif font-bold text-white">
+                            Sydney Trains <span class="text-slate-400 text-sm font-sans font-normal ml-2">Transport for NSW • NSW Government</span>
+                        </h3>
+                        <span class="text-xs mono font-semibold text-gold bg-gold/10 px-3 py-1 rounded border border-gold/30">11/2023 – 11/2024</span>
+                    </div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-300 mb-4">
+                        Senior Test Analyst <span class="text-gold font-normal">• Direct Engagement (Fixed Term)</span>
+                    </div>
+                    <ul class="text-sm text-slate-400 font-light space-y-2 mb-4 list-disc list-inside">
+                        <li>Partnered with the Passenger Information & Customer Information Channel (PI/CIC) team to directly elevate commuter experience across Sydney Trains.</li>
+                        <li>Spearheaded API and end-to-end testing for core CIU application: RTTA (Real-Time Train Application).</li>
+                        <li>Authored comprehensive Test Plans and Executive Summary Reports; led Post Implementation Verification (PIV) across SIT, DEV, and UAT environments.</li>
+                        <li>Tested suite of critical CIU applications including PIMGR, OTMS, and OBH while coordinating across diverse vendor ecosystems.</li>
+                        <li>Leveraged Splunk for deep observability, incident tracking, and performance diagnostic isolation.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Splunk Observability</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">RTTA E2E</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Azure DevOps</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Zephyr</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Jira</span>
+                    </div>
+                </div>
+
+                <!-- Transport for NSW -->
+                <div class="timeline-node timeline-item" data-category="government management">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-3">
+                        <h3 class="text-2xl serif font-bold text-white">
+                            Transport for NSW <span class="text-slate-400 text-sm font-sans font-normal ml-2">NSW Government • Sydney, NSW</span>
+                        </h3>
+                        <span class="text-xs mono font-semibold text-gold bg-gold/10 px-3 py-1 rounded border border-gold/30">03/2016 – 08/2023</span>
+                    </div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-300 mb-4">
+                        Automation Test Lead (2021–2023) • Test Automation Engineer (2016–2021)
+                    </div>
+                    <div class="glass-panel p-4 rounded-lg mb-4 border-l-2 border-gold text-xs text-slate-300 font-light">
+                        <strong class="text-gold uppercase font-bold tracking-wider">Key Milestone:</strong> Spearheaded advanced automation utilities yielding a verified <span class="text-white font-bold underline decoration-gold">~60% reduction in manual regression cycles</span> for the SCATS® intelligent traffic system.
+                    </div>
+                    <ul class="text-sm text-slate-400 font-light space-y-2 mb-4 list-disc list-inside">
+                        <li>Transformed SCATS® Cit-e test suite into Python Behave-BDD on Ubuntu 20.04; integrated into Bamboo CI/CD pipelines.</li>
+                        <li>Executed successful Selenium Java Proof-of-Concept to migrate deprecated legacy test suites away from Micro Focus UFT.</li>
+                        <li>Pioneered network monitoring with PRTG, eliminating environmental flakiness and improving test farm uptime.</li>
+                        <li>Administered SpiraTeam across engineering streams, setting governance for version control, branching, and audit trails.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Python Behave-BDD</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Ubuntu 20.04</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">SCATS® Cit-e</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">PRTG Network</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">SpiraTeam</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Bamboo</span>
+                    </div>
+                </div>
+
+                <!-- Ness Technologies -->
+                <div class="timeline-node timeline-item" data-category="enterprise management">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-3">
+                        <h3 class="text-2xl serif font-bold text-white">
+                            Ness Technologies <span class="text-slate-400 text-sm font-sans font-normal ml-2">Enterprise Solutions</span>
+                        </h3>
+                        <span class="text-xs mono font-semibold text-gold bg-gold/10 px-3 py-1 rounded border border-gold/30">10/2013 – 02/2016</span>
+                    </div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-300 mb-4">
+                        QA Lead / Test Manager
+                    </div>
+                    <div class="glass-panel p-4 rounded-lg mb-4 border-l-2 border-gold text-xs text-slate-300 font-light">
+                        <strong class="text-gold uppercase font-bold tracking-wider">The "Automation Marathon":</strong> Orchestrated a dedicated sprint creating 151 automated tests, reducing System Test duration by 19 person-days.
+                    </div>
+                    <ul class="text-sm text-slate-400 font-light space-y-2 mb-4 list-disc list-inside">
+                        <li>Developed PowerShell automation for instant Hyper-V snapshot reverting, slashing manual lab management effort by 15-20%.</li>
+                        <li>Introduced Jenkins CI from scratch, cutting test suite runtime by 30% (from 8 hours down to 5.5 hours).</li>
+                        <li>Engineered reusable test harness scripts, automated metrics gathering (saving 2 person-days per cycle), and managed full appraisal and delivery lifecycle.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Test Harness</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Hyper-V Automation</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">PowerShell</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Jenkins CI</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">VBScript</span>
+                    </div>
+                </div>
+
+                <!-- Hewlett-Packard -->
+                <div class="timeline-node timeline-item" data-category="enterprise">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2 mb-3">
+                        <h3 class="text-2xl serif font-bold text-white">
+                            Hewlett-Packard (HP) <span class="text-slate-400 text-sm font-sans font-normal ml-2">Malmo, Sweden • Preston, UK • Bangalore, India</span>
+                        </h3>
+                        <span class="text-xs mono font-semibold text-gold bg-gold/10 px-3 py-1 rounded border border-gold/30">07/2006 – 09/2013</span>
+                    </div>
+                    <div class="text-sm font-bold uppercase tracking-wider text-slate-300 mb-4">
+                        Quality Engineer • Quality Lead • Technology Consultant
+                    </div>
+                    <ul class="text-sm text-slate-400 font-light space-y-2 mb-4 list-disc list-inside">
+                        <li>Directed large offshore test teams for AVEVA Marine and PDMS complex engineering software built on Microsoft .NET.</li>
+                        <li>Served in the UK on Department for Work and Pensions (DWP - UK Government) testing Siebel CRM in Hypervisor environments.</li>
+                        <li>Overhauled test frameworks to deliver a 20% drop in ongoing maintenance; created digital learning systems accelerating onboarding.</li>
+                        <li>Awarded the prestigious HP eAward® and @hp Award for exceptional customer contribution and release reliability.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">AVEVA Marine</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">DWP (UK Gov)</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">Siebel CRM</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">HP Quality Center</span>
+                        <span class="text-[11px] mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">QTP</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="qualy5" class="scroll-mt-24">
+            <div class="glass-panel p-8 sm:p-12 rounded-2xl relative overflow-hidden border border-gold/30 bg-gradient-to-br from-surface to-surfaceLight">
+                <div class="grid lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold">
+                            <i class="fas fa-crown"></i>
+                            Founder & Director Experience
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl serif font-bold text-white">
+                            Qualy5 Business Solutions
+                        </h2>
+                        <p class="text-slate-300 font-light leading-relaxed">
+                            Established in 2017, Qualy5 is a specialized Quality Engineering and technology delivery firm operating dual delivery hubs in <strong class="text-white font-medium">Sydney, Australia</strong> and <strong class="text-white font-medium">Bengaluru, India</strong>. Overseeing operations, marketing, client roadmaps, and delivery execution.
+                        </p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="glass-panel p-4 rounded-xl text-center border border-white/10">
+                                <div class="text-2xl font-bold serif text-gold">50+</div>
+                                <div class="text-[10px] uppercase font-bold text-slate-400 mt-1">Delivered Projects</div>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl text-center border border-white/10">
+                                <div class="text-2xl font-bold serif text-gold">20+</div>
+                                <div class="text-[10px] uppercase font-bold text-slate-400 mt-1">Active Projects</div>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl text-center border border-white/10 col-span-2 sm:col-span-1">
+                                <div class="text-2xl font-bold serif text-white">24 / 7</div>
+                                <div class="text-[10px] uppercase font-bold text-slate-400 mt-1">Syd - Blr Pipeline</div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Job 2 -->
-                <div class="mb-16 relative">
-                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-cyan-500 border-4 border-slate-900"></div>
-                    <div class="grid md:grid-cols-4 gap-8">
-                        <div class="md:col-span-1">
-                            <span class="mono text-cyan-400 text-sm">2023 — 2024</span>
-                            <h3 class="text-xl font-bold mt-1 text-white">Sydney Trains</h3>
-                            <p class="text-xs mono text-slate-500 uppercase tracking-widest mt-1">Transport for NSW</p>
-                        </div>
-                        <div class="md:col-span-3 glass-panel p-6 rounded-xl border border-white/5">
-                            <h4 class="text-lg font-semibold text-cyan-300 mb-3">Senior Test Analyst</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Directed API and E2E testing for the <b>Real Time Train Application (RTTA)</b>, ensuring high-reliability customer experience updates for millions of commuters. Managed SIT and UAT for PIMGR and OTMS applications.
+                        <ul class="text-sm text-slate-400 font-light space-y-2">
+                            <li><i class="fas fa-check text-gold mr-2"></i> Bridging tier-1 Australian government requirements with flexible, high-calibre offshore talent.</li>
+                            <li><i class="fas fa-check text-gold mr-2"></i> Mentored over 20+ engineers across BDD, Kafka stream verification, and Agentic AI tool adoption.</li>
+                        </ul>
+                    </div>
+
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="glass-panel p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xs uppercase font-bold tracking-widest text-white mb-2">Corporate Specialisations</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed font-light">
+                                QA Governance • Vendor Alignment • Strategic Testing Roadmaps • Cost Reduction Frameworks • Risk & Compliance for Regulated Sectors
                             </p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="mb-16 relative">
-                    <div class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-cyan-500 border-4 border-slate-900"></div>
-                    <div class="grid md:grid-cols-4 gap-8">
-                        <div class="md:col-span-1">
-                            <span class="mono text-cyan-400 text-sm">2016 — 2023</span>
-                            <h3 class="text-xl font-bold mt-1 text-white">Transport for NSW</h3>
-                            <p class="text-xs mono text-slate-500 uppercase tracking-widest mt-1">State Govt</p>
-                        </div>
-                        <div class="md:col-span-3 glass-panel p-6 rounded-xl">
-                            <h4 class="text-lg font-semibold text-cyan-300 mb-3">Automation Test Lead</h4>
-                            <ul class="space-y-3 text-slate-400 text-sm">
-                                <li class="text-cyan-400/90 font-mono text-xs font-bold uppercase tracking-tighter">[MILESTONE: 60% REDUCTION IN MANUAL EFFORT]</li>
-                                <li>• Spearheaded <b>Python-based Behave BDD</b> automation for SCATS® Cit-e.</li>
-                                <li>• Migrated legacy frameworks from UFT to Selenium Java.</li>
-                                <li>• Revolutionized network monitoring by setting up PRTG for environment stability.</li>
-                            </ul>
+                        <div class="glass-panel p-6 rounded-xl border border-white/10">
+                            <h4 class="text-xs uppercase font-bold tracking-widest text-gold mb-2">Visit Corporate Portal</h4>
+                            <p class="text-xs text-slate-400 mb-3 font-light">Explore case studies, capabilities, and delivery models.</p>
+                            <a href="http://www.qualy5.com.au" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-gold uppercase tracking-wider">
+                                <span>qualy5.com.au</span>
+                                <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-16 flex items-center mono">
-                <span class="text-cyan-500 mr-4">02.</span> TECHNICAL_STACK
-            </h2>
+        <section id="capabilities" class="scroll-mt-24 space-y-10">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold block mb-2">Capabilities</span>
+                <h2 class="text-3xl sm:text-5xl serif text-white">Skills & Technical Matrix</h2>
+            </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-panel p-8 rounded-2xl border border-cyan-500/20">
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 rounded bg-cyan-500/20 flex items-center justify-center mr-4">
-                            <i class="fas fa-robot text-cyan-400"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Automation & Frameworks -->
+                <div class="glass-panel p-6 rounded-xl space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center text-lg">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Test Automation</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Selenium (Java)</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Playwright MCP</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Python Behave (BDD)</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">RestAssured</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Cypress (JS)</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">JUnit</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">TestComplete</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">UFT / QTP</span>
+                    </div>
+                </div>
+
+                <!-- Next-Gen & Agentic AI -->
+                <div class="glass-panel p-6 rounded-xl space-y-4 border border-gold/30">
+                    <div class="w-10 h-10 rounded-lg bg-gold/20 text-gold flex items-center justify-center text-lg">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-base font-bold text-white">AI & Next-Gen QA</h3>
+                        <span class="text-[9px] uppercase px-2 py-0.5 rounded bg-gold/20 text-gold font-bold">Cutting Edge</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-gold text-xs">Playwright MCP</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Agentic AI (Robonito)</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Gemini Enterprise</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">VortexAI</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Perplexity</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">NotebookLLM</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Spec-Driven Dev (SDD)</span>
+                    </div>
+                </div>
+
+                <!-- API & Event-Driven Testing -->
+                <div class="glass-panel p-6 rounded-xl space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center text-lg">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">API & Event Streaming</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Kafka Event Streams</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Postman API Suites</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">RestAssured</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Mock Data Testing</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">MongoDB</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">DB2 Validation</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">SQL Queries</span>
+                    </div>
+                </div>
+
+                <!-- CI/CD & DevOps -->
+                <div class="glass-panel p-6 rounded-xl space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center text-lg">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">CI/CD & Observability</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">GitLab CI/CD</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Azure DevOps</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Bamboo</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Jenkins</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Splunk Observability</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">PRTG Monitoring</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Hyper-V Automation</span>
+                    </div>
+                </div>
+
+                <!-- Governance & Methodology -->
+                <div class="glass-panel p-6 rounded-xl space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center text-lg">
+                        <i class="fas fa-list-check"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Management & Governance</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">SAFe Agile</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Scrum Master Skills</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">ServiceNow Change Owner</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">CAB Approvals</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Jira & Confluence</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Xray / Zephyr</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">SpiraTeam</span>
+                    </div>
+                </div>
+
+                <!-- Domain & Enterprise Platforms -->
+                <div class="glass-panel p-6 rounded-xl space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center text-lg">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Domain & Platforms</h3>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Syndigo PIM</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Retail & eCommerce (B2B/B2C)</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Adobe Experience Manager (AEM)</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">SCATS® Intelligent Transit</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">Ubuntu & Windows Server</span>
+                        <span class="px-2.5 py-1 rounded bg-white/5 text-slate-300 text-xs">AVEVA Marine / PDMS</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-panel p-6 rounded-xl text-center space-y-3">
+                <i class="fas fa-award text-gold text-2xl"></i>
+                <h4 class="font-bold text-sm text-white uppercase tracking-wider">HP eAward®</h4>
+                <p class="text-xs text-slate-400 font-light">Honored for exceptional performance, framework overhaul, and client appreciation.</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl text-center space-y-3">
+                <i class="fas fa-handshake-angle text-gold text-2xl"></i>
+                <h4 class="font-bold text-sm text-white uppercase tracking-wider">@hp Award</h4>
+                <p class="text-xs text-slate-400 font-light">Recognized for outstanding team and customer contribution across international accounts.</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl text-center space-y-3">
+                <i class="fas fa-medal text-gold text-2xl"></i>
+                <h4 class="font-bold text-sm text-white uppercase tracking-wider">President's Award</h4>
+                <p class="text-xs text-slate-400 font-light">Conferred President's Award in Scouts & Guides for leadership and service.</p>
+            </div>
+            <div class="glass-panel p-6 rounded-xl text-center space-y-3">
+                <i class="fas fa-graduation-cap text-gold text-2xl"></i>
+                <h4 class="font-bold text-sm text-white uppercase tracking-wider">B.E. Engineering</h4>
+                <p class="text-xs text-slate-400 font-light">Bachelor of Engineering Degree (2001 – 2005). Technical and analytical foundation.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="scroll-mt-24">
+            <div class="glass-panel p-8 sm:p-14 rounded-2xl border border-white/10 relative overflow-hidden">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-8 space-y-6">
+                        <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold">Let's Connect</span>
+                        <h2 class="text-3xl sm:text-5xl serif text-white leading-tight">
+                            Available for Lead Roles, Advisory & Strategic Delivery.
+                        </h2>
+                        <p class="text-slate-300 font-light leading-relaxed max-w-xl text-sm sm:text-base">
+                            Whether you need a <strong class="text-white">Senior Automation Lead</strong>, a <strong class="text-white">Test Manager</strong> for complex transformations, or high-performing global delivery partnerships via <strong class="text-gold font-medium">Qualy5</strong>, let's start a conversation.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="mailto:abdulwaheed2710@gmail.com" class="px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-black bg-gold hover:bg-gold-400 transition-all shadow-lg shadow-gold-glow flex items-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Email</span>
+                            </a>
+                            <button onclick="copyContact()" id="copy-btn" class="px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-white glass-panel border border-white/20 hover:border-gold transition-all flex items-center gap-2">
+                                <i class="fas fa-copy text-gold"></i>
+                                <span id="copy-text">Copy Contact Info</span>
+                            </button>
                         </div>
-                        <h3 class="font-bold text-xl">Automation</h3>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Selenium Java</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Python Behave</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Cypress</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">RestAssured</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Postman</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Agentic AI</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">UFT</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">TestComplete</span>
-                    </div>
-                </div>
 
-                <div class="glass-panel p-8 rounded-2xl border border-blue-500/20">
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 rounded bg-blue-500/20 flex items-center justify-center mr-4">
-                            <i class="fas fa-terminal text-blue-400"></i>
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="glass-panel p-5 rounded-xl border border-white/10 text-xs space-y-2">
+                            <span class="text-slate-500 uppercase tracking-widest font-semibold block text-[10px]">Direct Phone</span>
+                            <a href="tel:+61469726353" class="text-white hover:text-gold font-medium text-sm block">+61 469 726 353</a>
                         </div>
-                        <h3 class="font-bold text-xl">DevOps & Infrastructure</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">GitLab CI</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Azure DevOps</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Jenkins</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Bamboo</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Bitbucket</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">PowerShell</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Ubuntu/Linux</span>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl border border-purple-500/20">
-                    <div class="flex items-center mb-6">
-                        <div class="w-10 h-10 rounded bg-purple-500/20 flex items-center justify-center mr-4">
-                            <i class="fas fa-sitemap text-purple-400"></i>
+                        <div class="glass-panel p-5 rounded-xl border border-white/10 text-xs space-y-2">
+                            <span class="text-slate-500 uppercase tracking-widest font-semibold block text-[10px]">LinkedIn Connection</span>
+                            <a href="https://linkedin.com/in/abdulw" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline font-medium text-sm block flex items-center gap-1.5">
+                                <span>linkedin.com/in/abdulw</span>
+                                <i class="fas fa-external-link-alt text-[10px]"></i>
+                            </a>
                         </div>
-                        <h3 class="font-bold text-xl">Leadership</h3>
+                        <div class="glass-panel p-5 rounded-xl border border-white/10 text-xs space-y-2">
+                            <span class="text-slate-500 uppercase tracking-widest font-semibold block text-[10px]">Personal Portfolio</span>
+                            <a href="https://ironicaldestiny.github.io/awaheed/" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline font-medium text-sm block flex items-center gap-1.5">
+                                <span>ironicaldestiny.github.io/awaheed</span>
+                                <i class="fas fa-external-link-alt text-[10px]"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">QA Governance</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">SAFe Agile</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Test Planning</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Stakeholder Management</span>
-                        <span class="skill-tag px-3 py-1 rounded text-xs mono">Team Mentoring</span>
+                </div>
+
+                <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[11px] mono">
+                    <div>© 2026 Abdul Waheed. All rights reserved.</div>
+                    <div class="flex items-center gap-4">
+                        <span>Baseline Security Cleared</span>
+                        <span>•</span>
+                        <span>Sydney, Australia</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Terminal Mockup -->
-    <section class="py-20 px-6 bg-black">
-        <div class="max-w-4xl mx-auto glass-panel rounded-lg overflow-hidden border border-white/10">
-            <div class="bg-slate-800 px-4 py-2 flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="mono text-xs text-slate-400 ml-4">abdul-waheed@system: ~</span>
-            </div>
-            <div class="p-6 mono text-sm leading-relaxed text-green-400 min-h-[300px]" id="terminal-content">
-                <p>> initiating system_scan...</p>
-                <p>> loading education_modules... [DONE]</p>
-                <p>> fetching certifications... [DONE]</p>
-                <p>> analyzing achievements...</p>
-                <p class="text-white mt-4">_ FOUND: HP eAward (Exceptional Performance)</p>
-                <p class="text-white">_ FOUND: HP Service Level Award (5 Years)</p>
-                <p class="text-white">_ FOUND: President Award (Scouts & Guides)</p>
-                <p class="text-cyan-400 mt-4 font-bold">> READY_FOR_DEPLOYMENT</p>
-                <div class="animate-pulse">_</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Contact -->
-    <footer id="contact" class="py-20 px-6 border-t border-white/5">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">Establish Connection</h2>
-            <p class="text-slate-500 mono mb-12 uppercase tracking-widest text-sm">Waiting for incoming signal...</p>
-            
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="mailto:abdulwaheed2710@gmail.com" class="glass-panel p-6 rounded-xl border border-white/5 hover:border-cyan-500 transition-all flex items-center gap-4 group">
-                    <div class="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500 group-hover:text-black transition-all">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-slate-500 mono">EMAIL</p>
-                        <p class="font-bold">abdulwaheed2710@gmail.com</p>
-                    </div>
-                </a>
-
-                <a href="#" class="glass-panel p-6 rounded-xl border border-white/5 hover:border-blue-500 transition-all flex items-center gap-4 group">
-                    <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-slate-500 mono">LINKEDIN</p>
-                        <p class="font-bold">Connect on Professional Network</p>
-                    </div>
-                </a>
-
-                <div class="glass-panel p-6 rounded-xl border border-white/5 flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs text-slate-500 mono">LOCATION</p>
-                        <p class="font-bold">Sydney, Australia</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="mt-24 text-slate-600 mono text-[10px] uppercase tracking-widest">
-                &copy; 2024 Abdul Waheed // System Ver 2.4.0 // Designed for the future of QA
-            </p>
-        </div>
-    </footer>
+    </main>
 
     <script>
-        // Simple scroll reveal or terminal text effect could be added here
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log("System Initialized...");
-        });
+        function filterTimeline(category) {
+            const items = document.querySelectorAll('.timeline-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active-btn', 'text-white', 'badge-active');
+                btn.classList.add('text-slate-400');
+            });
+
+            event.currentTarget.classList.add('active-btn', 'text-white', 'badge-active');
+            event.currentTarget.classList.remove('text-slate-400');
+
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                if (category === 'all' || itemCat.includes(category)) {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                } else {
+                    item.style.display = 'none';
+                    item.style.opacity = '0';
+                }
+            });
+        }
+
+        function copyContact() {
+            const textToCopy = "Abdul Waheed | Senior Test Automation Leader\nPhone: +61 469 726 353\nEmail: abdulwaheed2710@gmail.com\nLinkedIn: https://linkedin.com/in/abdulw\nWeb: https://ironicaldestiny.github.io/awaheed/";
+            
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                const copyText = document.getElementById('copy-text');
+                const orig = copyText.innerText;
+                copyText.innerText = "Copied to Clipboard!";
+                setTimeout(() => {
+                    copyText.innerText = orig;
+                }, 2200);
+            } catch (err) {
+                console.error('Copy fallback failed', err);
+            }
+            document.body.removeChild(textArea);
+        }
     </script>
 </body>
 </html>
