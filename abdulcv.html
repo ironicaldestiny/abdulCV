@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul Waheed | Senior Test Automation Leader & Quality Engineering Director</title>
+    <title>Abdul Waheed | Senior Test Automation Leader & Quality Engineering Consultant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script>
@@ -118,7 +118,7 @@
                 <div>
                     <div class="text-base font-bold tracking-tight text-white flex items-center gap-2">
                         Abdul Waheed
-                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Available for Strategic & Lead Roles"></span>
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Available for Strategic Lead & Consulting Engagements"></span>
                     </div>
                     <div class="text-[10px] uppercase tracking-[0.2em] text-gold font-semibold">Senior Test Lead & QA Manager</div>
                 </div>
@@ -127,8 +127,8 @@
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-slate-300">
                 <a href="#about" class="hover:text-gold transition-colors">Overview</a>
-                <a href="#current-role" class="hover:text-gold transition-colors">Current Engagement</a>
-                <a href="#experience" class="hover:text-gold transition-colors">Timeline</a>
+                <a href="#current-role" class="hover:text-gold transition-colors">Current Role</a>
+                <a href="#experience" class="hover:text-gold transition-colors">Career Timeline</a>
                 <a href="#capabilities" class="hover:text-gold transition-colors">Expertise</a>
             </nav>
 
@@ -150,7 +150,7 @@
             <div class="max-w-4xl space-y-8 w-full">
                 <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/5 text-gold text-xs font-bold tracking-widest uppercase">
                     <i class="fas fa-shield-halved text-[11px]"></i>
-                    <span>Baseline Security Cleared • 20+ Years Excellence</span>
+                    <span>Baseline Security Cleared • 20+ Years Quality Leadership</span>
                 </div>
 
                 <h1 class="text-4xl sm:text-6xl xl:text-7xl serif font-normal leading-[1.08] tracking-tight">
@@ -275,7 +275,7 @@
                 <div class="flex flex-wrap gap-2 text-xs font-semibold" id="filter-container">
                     <button onclick="filterTimeline('all')" class="filter-btn active-btn px-4 py-2 rounded-lg glass-panel text-white hover:text-gold border border-white/10 transition-all">All Roles</button>
                     <button onclick="filterTimeline('government')" class="filter-btn px-4 py-2 rounded-lg glass-panel text-slate-400 hover:text-white border border-white/10 transition-all">Government & Public</button>
-                    <button onclick="filterTimeline('enterprise')" class="filter-btn px-4 py-2 rounded-lg glass-panel text-slate-400 hover:text-white border border-white/10 transition-all">Enterprise & Tech</button>
+                    <button onclick="filterTimeline('enterprise')" class="filter-btn px-4 py-2 rounded-lg glass-panel text-slate-400 hover:text-white border border-white/10 transition-all">Enterprise & Retail</button>
                     <button onclick="filterTimeline('management')" class="filter-btn px-4 py-2 rounded-lg glass-panel text-slate-400 hover:text-white border border-white/10 transition-all">Management & Lead</button>
                 </div>
             </div>
@@ -635,11 +635,13 @@
                 btn.classList.add('text-slate-400');
             });
 
-            event.currentTarget.classList.add('active-btn', 'text-white', 'badge-active');
-            event.currentTarget.classList.remove('text-slate-400');
+            if (window.event && window.event.currentTarget) {
+                window.event.currentTarget.classList.add('active-btn', 'text-white', 'badge-active');
+                window.event.currentTarget.classList.remove('text-slate-400');
+            }
 
             items.forEach(item => {
-                const itemCat = item.getAttribute('data-category');
+                const itemCat = item.getAttribute('data-category') || '';
                 if (category === 'all' || itemCat.includes(category)) {
                     item.style.display = 'block';
                     item.style.opacity = '1';
@@ -651,7 +653,7 @@
         }
 
         function copyContact() {
-            const textToCopy = "Abdul Waheed | Senior Test Automation Leader\nPhone: +61 469 726 353\nEmail: abdulwaheed2710@gmail.com\nLinkedIn: https://linkedin.com/in/abdulw\nWeb: https://ironicaldestiny.github.io/awaheed/";
+            const textToCopy = "Abdul Waheed | Senior Test Automation Leader & QA Manager\nPhone: +61 469 726 353\nEmail: abdulwaheed2710@gmail.com\nLinkedIn: https://linkedin.com/in/abdulw\nWeb: https://ironicaldestiny.github.io/awaheed/";
             
             const textArea = document.createElement("textarea");
             textArea.value = textToCopy;
@@ -663,11 +665,13 @@
             try {
                 document.execCommand('copy');
                 const copyText = document.getElementById('copy-text');
-                const orig = copyText.innerText;
-                copyText.innerText = "Copied to Clipboard!";
-                setTimeout(() => {
-                    copyText.innerText = orig;
-                }, 2200);
+                if (copyText) {
+                    const orig = copyText.innerText;
+                    copyText.innerText = "Copied to Clipboard!";
+                    setTimeout(() => {
+                        copyText.innerText = orig;
+                    }, 2200);
+                }
             } catch (err) {
                 console.error('Copy fallback failed', err);
             }
